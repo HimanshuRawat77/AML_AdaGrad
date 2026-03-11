@@ -1,0 +1,23 @@
+{
+    "interactions": [
+        {
+            "task_tag": "Task 3.1 Component 1",
+            "prompt": "For my first ablation study, I want to test the 'historical memory' aspect of AdaGrad. What would happen mathematically if I removed the cumulative sum of squared gradients and just used the current step's squared gradient in the denominator? How would I code that change?",
+            "response_summary": "The LLM explained that removing the cumulative sum removes the stabilizing anchor of the algorithm, causing the learning rate to jump erratically. It provided the modified Python loop where sum_sq_gradients is replaced by just current_sq_gradient.",
+            "code_used_verbatim": true,
+            "student_modification": "I added my own matplotlib code to plot this ablated version alongside the full AdaGrad to visually prove the instability in my notebook."
+        },
+        {
+            "task_tag": "Task 3.1 Component 2",
+            "prompt": "For my second ablation, I want to prove that the *per-feature* adaptation is the real secret to AdaGrad. If I force all features to share the same global average learning rate, should I expect the loss to look exactly like standard SGD? How do I calculate that global average in NumPy?",
+            "response_summary": "The LLM confirmed this hypothesis, explaining that taking the np.mean() of the accumulated gradients destroys the feature-level independence, crippling performance on sparse data. It provided the NumPy syntax to average the matrix.",
+            "code_used_verbatim": false
+        }
+    ],
+    "top_5_prompts": [
+        "For my first ablation study, I want to test the 'historical memory' aspect of AdaGrad. What would happen mathematically if I removed the cumulative sum of squared gradients and just used the current step's squared gradient in the denominator? How would I code that change?",
+        "For my second ablation, I want to prove that the *per-feature* adaptation is the real secret to AdaGrad. If I force all features to share the same global average learning rate, should I expect the loss to look exactly like standard SGD? How do I calculate that global average in NumPy?"
+    ],
+    "student_verification": true,
+    "declaration": "I declare that the above prompts were used to brainstorm logical ways to dismantle the mathematical components of the paper and to understand the expected behavior of the ablated models before running the experiments."
+}
